@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        tools:ignore="ExtraText">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/product_specs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/product_name"
+                android:layout_marginLeft="18dp"
+                android:layout_marginStart="18dp"
+                android:layout_toEndOf="@+id/id_venta"
+                android:layout_toRightOf="@+id/id_venta"
+                android:text="Características"
+                android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small"
+                app:layout_constraintStart_toStartOf="@+id/product_name"
+                app:layout_constraintTop_toBottomOf="@+id/product_name" />
+
+            <TextView
+                android:id="@+id/client_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/id_venta"
+                android:layout_alignStart="@+id/id_venta"
+                android:layout_below="@+id/id_venta"
+                android:text="Client Name "
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_ph" />
+
+            <TextView
+                android:id="@+id/product_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/client_name"
+                android:layout_alignStart="@+id/client_name"
+                android:layout_below="@+id/client_name"
+                android:layout_marginLeft="13dp"
+                android:layout_marginStart="13dp"
+                android:text="Producto 1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toEndOf="@+id/client_name"
+                app:layout_constraintTop_toBottomOf="@+id/client_name" />
+
+            <TextView
+                android:id="@+id/id_ph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="11dp"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="13dp"
+                android:text="id   "
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                app:layout_constraintStart_toStartOf="@+id/client_name"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/id_venta"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_alignBaseline="@+id/id_ph"
+                android:layout_alignBottom="@+id/id_ph"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:layout_toEndOf="@+id/id_ph"
+                android:layout_toRightOf="@+id/id_ph"
+                android:text="01"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                app:layout_constraintEnd_toEndOf="@+id/client_name"
+                app:layout_constraintHorizontal_bias="0.007"
+                app:layout_constraintStart_toEndOf="@+id/id_ph"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/product_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/product_name"
+                android:layout_marginEnd="31dp"
+                android:layout_marginRight="31dp"
+                android:layout_marginTop="58dp"
+                android:text="$ 500"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/product_specs"
+                app:layout_constraintTop_toBottomOf="@+id/product_specs" />
+
+            <com.gc.materialdesign.views.ButtonFlat
+                android:id="@+id/btn_entregado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/product_price"
+                android:layout_alignRight="@+id/product_price"
+                android:layout_below="@+id/id_ph"
+                android:text="Entregado" />
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

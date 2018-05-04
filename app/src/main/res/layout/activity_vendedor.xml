@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mx.itesm.csf.calvin_catalogue.VendedorActivity">
+
+    <TextView
+        android:id="@+id/tv_listaVentas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Lista de Ventas"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textSize="30sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview_vendedor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tv_listaVentas"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"></android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/tv_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_listaVentas"
+        android:layout_centerHorizontal="true"
+        android:text="Se muestran las ventas no entregadas" />
+
+</RelativeLayout>

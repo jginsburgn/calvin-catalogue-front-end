@@ -104,13 +104,34 @@ public class Login extends AppCompatActivity {
                                     userData.getInstance().setApmaterno(username.getString("Apmaterno"));
                                     userData.getInstance().setusuario(usuario);
                                     userData.getInstance().setPassword(password);
+                                    userData.getInstance().setRol("gerente");     /* Código para conocer el tipo de usuario */
+
+                                String rol = userData.getInstance().getRol();
 
                                 /* User Accepted Message */
                                     Toast.makeText(Login.this,
                                             "Bienvenido " + username.getString("Nombre"), Toast.LENGTH_LONG).show();
 
+                                    Intent intent;
                                 /* Once Logged in, go to the Next Activity */
-                                    Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                                /*  *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   */
+                                /*          ADAPT                                               */
+                                /*  *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   */
+                                    switch (rol) {
+                                        case "ceo":
+                                            intent = new Intent(getBaseContext(), MainActivity.class);
+                                            break;
+                                        case "gerente":
+                                            intent = new Intent(getBaseContext(), GerenteActivity.class);
+                                            break;
+                                        case "vendedor":
+                                            intent = new Intent(getBaseContext(), VendedorActivity.class);
+                                            break;
+                                        default:
+                                            intent = new Intent(getBaseContext(), MainActivity.class);
+                                            break;
+                                    }
+
                                     startActivity(intent);
                             }
                             else
@@ -134,7 +155,8 @@ public class Login extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error)
                     {
                         progressBar.hide();
-                        Toast.makeText(Login.this, "Error en: " + error.toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(Login.this, "Error en la conexión", Toast.LENGTH_LONG).show();
+                        Log.e(TAG, "Error en: " + error.toString());
                     }
                 }) {
                     @Override

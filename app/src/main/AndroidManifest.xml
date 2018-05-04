@@ -21,7 +21,11 @@
         </activity>
         <activity android:name=".Login" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".CatalogActivity"/>
+        <activity android:name=".CatalogActivity" />
+        <activity android:name=".VendedorActivity" />
+        <activity
+            android:name=".GerenteActivity"
+            android:label="@string/title_activity_gerente"></activity>
     </application>
 
 </manifest>
