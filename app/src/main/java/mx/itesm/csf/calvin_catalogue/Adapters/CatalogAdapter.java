@@ -87,7 +87,7 @@ public class CatalogAdapter extends RecyclerView.Adapter<CatalogAdapter.DataCont
                 super(itemView);
 
                 // Find the view Components
-                    Name         =  itemView.findViewById(R.id.client_name);
+                    Name         =  itemView.findViewById(R.id.v_name);
                     Description  =  itemView.findViewById(R.id.id_ph);
                     Price        =  itemView.findViewById(R.id.product_price);
                     Image        =  itemView.findViewById(R.id.product_image);

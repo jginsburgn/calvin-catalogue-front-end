@@ -10,4 +10,16 @@ public class Services {
     public static final String INSERT = "http://ubiquitous.csf.itesm.mx/~raulms/content/TC2024/REST/Minisistema3/servicio.c.autos.php";
     public static final String DELETE = "http://ubiquitous.csf.itesm.mx/~raulms/content/TC2024/REST/Minisistema3/servicio.d.autos.php";
     public static final String UPDATE = "http://ubiquitous.csf.itesm.mx/~raulms/content/TC2024/REST/Minisistema3/servicio.u.autos.php";
+
+    /* Necesitamos */
+
+    /*          Insert Vendedores                                     */
+    /*          Insert Gerentes                                       */
+    /*          Consultar Vendedores                                  */
+    /*          Consultar Ventas                                      */
+    /*          Consultar Ventas por vendedor                         */
+    /*          Consultar Productos                                   */
+    /*          Insert Venta (Comprar prod)                           */
+    /*          Update Venta (Venta realizada y qué vendedor la hizo) */
+    /*          Login de Usuario                                      */
 }

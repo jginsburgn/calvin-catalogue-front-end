@@ -9,11 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import mx.itesm.csf.calvin_catalogue.GerenteFragments.ReporteVendedor;
 import mx.itesm.csf.calvin_catalogue.GerenteFragments.ReporteVentas;
 
 public class GerenteActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
     Fragment selectedFragment = null;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -22,16 +22,17 @@ public class GerenteActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_ventas:
-                    mTextMessage.setText("Reporte de Ventas");
-                    selectedFragment = ReporteVentas.newInstance();
-                    return true;
-                case R.id.navigation_vendedor:
-                    mTextMessage.setText("Reporte Vendedores");
-                    return true;
-                case R.id.navigation_agregar:
-                    mTextMessage.setText("Agregar un Vendedor");
-                    return true;
+                /* Gerente quiere visualizar el Reporte de Ventas */
+                    case R.id.navigation_ventas:
+                        selectedFragment = ReporteVentas.newInstance();
+                        break;
+                /* Gerente quiere visualizar el Reporte de Vendedores */
+                    case R.id.navigation_vendedor:
+                        selectedFragment = ReporteVendedor.newInstance();
+                        break;
+                /* Gerente quiere agregar un nuevo Vendedor */
+                    case R.id.navigation_agregar:
+                        break;
             }
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.frame_layout, selectedFragment);
@@ -45,15 +46,14 @@ public class GerenteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gerente);
 
-        mTextMessage = findViewById(R.id.message);
-        BottomNavigationView navigation =  findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        /* Obtener el Bottom navigation View y agregar listener */
+            BottomNavigationView navigation =  findViewById(R.id.navigation);
+            navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-
-        //Manually displaying the first fragment - one time only
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_layout, ReporteVentas.newInstance());
-        transaction.commit();
+        /* Mostrar el primer fragment al ingresar a la actividad */
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.frame_layout, ReporteVentas.newInstance());
+            transaction.commit();
     }
 
 }

@@ -19,19 +19,17 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import mx.itesm.csf.calvin_catalogue.Adapters.CatalogAdapter;
 import mx.itesm.csf.calvin_catalogue.Adapters.VendedorAdapter;
 import mx.itesm.csf.calvin_catalogue.Controllers.Controller;
 import mx.itesm.csf.calvin_catalogue.Controllers.Services;
-import mx.itesm.csf.calvin_catalogue.Models.CatalogModel;
-import mx.itesm.csf.calvin_catalogue.Models.VendedorModel;
+import mx.itesm.csf.calvin_catalogue.Models.VentasModel;
 
 public class VendedorActivity extends AppCompatActivity {
 
     RecyclerView recView;
     RecyclerView.Adapter recAdapter;
     RecyclerView.LayoutManager recLayoutManager;
-    List<VendedorModel> vendedorElements;
+    List<VentasModel> ventasElements;
 
     //Button botonInsertar, botonBorrar;
     ProgressDialog progressBar;
@@ -46,14 +44,14 @@ public class VendedorActivity extends AppCompatActivity {
         //botonInsertar = (Button) findViewById(R.id.botonInsertar);
         //botonBorrar = (Button) findViewById(R.id.botonBorrar);
         progressBar = new ProgressDialog(VendedorActivity.this);
-        vendedorElements = new ArrayList<>();
+        ventasElements = new ArrayList<>();
 
         getJSON();
 
         // CardView components
         recLayoutManager = new LinearLayoutManager(VendedorActivity.this,LinearLayoutManager.VERTICAL,false);
         recView.setLayoutManager(recLayoutManager);
-        recAdapter = new VendedorAdapter(VendedorActivity.this, vendedorElements);
+        recAdapter = new VendedorAdapter(VendedorActivity.this, ventasElements);
         recView.setAdapter(recAdapter);
 
     }
@@ -83,17 +81,17 @@ public class VendedorActivity extends AppCompatActivity {
                             {
                                 JSONObject data = response.getJSONObject(i);
 
-                                VendedorModel vendedormodel = new VendedorModel();
+                                VentasModel ventas = new VentasModel();
 
                                 // Get the data from the JSON
-                                vendedormodel.setVenta_id(data.getString("Clave_auto"));  /* CAMBIAR A PRODUCTOS */
-                                vendedormodel.setProduct_name(data.getString("Nombre"));
-                                vendedormodel.setClient_name(data.getString("Clave_marca"));
-                                vendedormodel.setProduct_specs(data.getString("imagen"));
-                                vendedormodel.setProduct_price(data.getString("Precio"));
+                                ventas.setVenta_id(data.getString("Clave_auto"));  /* CAMBIAR A PRODUCTOS */
+                                ventas.setProduct_name(data.getString("Nombre"));
+                                ventas.setClient_name(data.getString("Clave_marca"));
+                                ventas.setProduct_specs(data.getString("imagen"));
+                                ventas.setProduct_price(data.getString("Precio"));
 
                                 // Add the data to the List
-                                vendedorElements.add(vendedormodel);
+                                ventasElements.add(ventas);
 
                             } catch (JSONException e) {
                                 e.printStackTrace();

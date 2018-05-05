@@ -1,22 +1,17 @@
 package mx.itesm.csf.calvin_catalogue.GerenteFragments;
 
-/**
- * Created by rodo on 04/05/2018.
- */
 import android.app.ProgressDialog;
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.CardView;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ScrollView;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -30,30 +25,31 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import mx.itesm.csf.calvin_catalogue.Adapters.ReportesVendedorAdapter;
 import mx.itesm.csf.calvin_catalogue.Adapters.VendedorAdapter;
 import mx.itesm.csf.calvin_catalogue.Controllers.Controller;
 import mx.itesm.csf.calvin_catalogue.Controllers.Services;
-import mx.itesm.csf.calvin_catalogue.Models.VentasModel;
+import mx.itesm.csf.calvin_catalogue.Models.VendedorModel;
 import mx.itesm.csf.calvin_catalogue.R;
 
-public class ReporteVentas extends Fragment {
+public class ReporteVendedor extends Fragment {
 
     RecyclerView recView;
     RecyclerView.Adapter recAdapter;
     RecyclerView.LayoutManager recLayoutManager;
-    List<VentasModel> ventasElements;
+    List<VendedorModel> vendedorElements;
 
     ProgressDialog progressBar;
 
-    public static ReporteVentas newInstance() {
-        return new ReporteVentas();
+    public static ReporteVendedor newInstance() {
+        return new ReporteVendedor();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.activity_vendedor, container, false);
+        return inflater.inflate(R.layout.activity_reporte_vendedor, container, false);
     }
 
     @Override
@@ -61,21 +57,22 @@ public class ReporteVentas extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         // Get the elements from the CardView and the list
-        recView =  getView().findViewById(R.id.recyclerview_vendedor);
+        recView =  getView().findViewById(R.id.rv_vendedores);
         //botonInsertar = (Button) findViewById(R.id.botonInsertar);
         //botonBorrar = (Button) findViewById(R.id.botonBorrar);
         progressBar = new ProgressDialog(getContext());
-        ventasElements = new ArrayList<>();
+        vendedorElements = new ArrayList<>();
 
         getJSON();
 
-        /* CardView components */
+        // CardView components
         recLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         recView.setLayoutManager(recLayoutManager);
-        recAdapter = new VendedorAdapter(getContext(), ventasElements);
+        recAdapter = new ReportesVendedorAdapter(getContext(), vendedorElements);
         recView.setAdapter(recAdapter);
 
     }
+
 
     private void getJSON()
     {
@@ -87,7 +84,7 @@ public class ReporteVentas extends Fragment {
         /**********************************************************************************/
 
         /**********************************************************************************/
-        JsonArrayRequest reqData = new JsonArrayRequest(Request.Method.PUT, Services.AUTOS,null, /* CAMBIAR AL NUESTRO*/
+        JsonArrayRequest reqData = new JsonArrayRequest(Request.Method.PUT, Services.AUTOS,null, /* Realizar Select de Vendedores*/
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -102,17 +99,16 @@ public class ReporteVentas extends Fragment {
                             {
                                 JSONObject data = response.getJSONObject(i);
 
-                                VentasModel ventasModel = new VentasModel();
+                                VendedorModel vendedorModel = new VendedorModel();
 
                                 // Get the data from the JSON
-                                ventasModel.setVenta_id(data.getString("Clave_auto"));  /* CAMBIAR A PRODUCTOS */
-                                ventasModel.setProduct_name(data.getString("Nombre"));
-                                ventasModel.setClient_name(data.getString("Clave_marca"));
-                                ventasModel.setProduct_specs(data.getString("imagen"));
-                                ventasModel.setProduct_price(data.getString("Precio"));
+                                vendedorModel.setId(data.getString("Clave_auto"));  /* CAMBIAR A PRODUCTOS */
+                                vendedorModel.setName(data.getString("Nombre"));
+                                vendedorModel.setStore(data.getString("Clave_marca"));
+                                vendedorModel.setSales_num(data.getString("imagen"));
 
                                 // Add the data to the List
-                                ventasElements.add(ventasModel);
+                                vendedorElements.add(vendedorModel);
 
                             } catch (JSONException e) {
                                 e.printStackTrace();

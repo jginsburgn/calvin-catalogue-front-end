@@ -25,7 +25,8 @@
         <activity android:name=".VendedorActivity" />
         <activity
             android:name=".GerenteActivity"
-            android:label="@string/title_activity_gerente"></activity>
+            android:label="@string/title_activity_gerente" />
+        <activity android:name=".GerenteFragments.ReporteVendedor"></activity>
     </application>
 
 </manifest>

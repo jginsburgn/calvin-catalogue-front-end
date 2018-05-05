@@ -26,7 +26,7 @@
                 tools:layout_editor_absoluteY="0dp" />
 
             <TextView
-                android:id="@+id/client_name"
+                android:id="@+id/v_name"
                 android:layout_width="237dp"
                 android:layout_height="39dp"
                 android:layout_below="@+id/product_price"
@@ -42,7 +42,7 @@
                 android:id="@+id/id_ph"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/client_name"
+                android:layout_below="@id/v_name"
                 android:layout_toRightOf="@id/imageView"
                 android:text="13.3 Inch, 256 GB"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
