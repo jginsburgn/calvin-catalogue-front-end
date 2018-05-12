@@ -59,7 +59,7 @@
         android:background="@drawable/et_bottom_line"
         android:ems="10"
         android:hint="Contraseña"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:textColor="#ffff"
         android:textColorHint="#E5E5E5"
         android:theme="@style/MyEditTextStyle"

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mx.itesm.csf.calvin_catalogue.GerenteFragments.AgregarVendedor"
+    tools:layout_editor_absoluteY="81dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_below="@+id/et_store"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="42dp"
+            android:layout_marginEnd="31dp"
+            android:layout_marginTop="55dp"
+            android:text="Agregar Vendedor"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toTopOf="@+id/et_name"
+            app:layout_constraintEnd_toEndOf="@+id/et_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_below="@+id/textView2"
+            android:layout_marginBottom="23dp"
+            android:layout_marginEnd="71dp"
+            android:layout_marginStart="71dp"
+            android:layout_toEndOf="@+id/et_store"
+            android:layout_toRightOf="@+id/et_store"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Nombre"
+            app:layout_constraintBottom_toTopOf="@+id/et_store"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <EditText
+            android:id="@+id/et_store"
+            android:layout_width="227dp"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="19dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Tienda"
+            app:layout_constraintBottom_toTopOf="@+id/btn_agregar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_name" />
+
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/btn_agregar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/et_name"
+            android:layout_marginBottom="174dp"
+            android:layout_toLeftOf="@+id/et_name"
+            android:layout_toStartOf="@+id/et_name"
+            android:background="@color/colorPrimary"
+            android:text="Agregar Vendedor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_store" />
+    </android.support.constraint.ConstraintLayout>
+
+</RelativeLayout>

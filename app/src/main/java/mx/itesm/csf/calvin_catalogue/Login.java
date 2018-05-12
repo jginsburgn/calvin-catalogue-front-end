@@ -104,7 +104,7 @@ public class Login extends AppCompatActivity {
                                     userData.getInstance().setApmaterno(username.getString("Apmaterno"));
                                     userData.getInstance().setusuario(usuario);
                                     userData.getInstance().setPassword(password);
-                                    userData.getInstance().setRol("gerente");     /* Código para conocer el tipo de usuario */
+      /********CAMBIAR recibir por DB*/              userData.getInstance().setRol("comprador");                               /* Código para conocer el tipo de usuario */
 
                                 String rol = userData.getInstance().getRol();
 
@@ -119,10 +119,12 @@ public class Login extends AppCompatActivity {
                                 /*  *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   */
                                     switch (rol) {
                                         case "ceo":
-                                            intent = new Intent(getBaseContext(), MainActivity.class);
+                                            intent = new Intent(getBaseContext(), GerenteActivity.class);
+                                            intent.putExtra("puesto","ceo");
                                             break;
                                         case "gerente":
                                             intent = new Intent(getBaseContext(), GerenteActivity.class);
+                                            intent.putExtra("puesto","gerente");
                                             break;
                                         case "vendedor":
                                             intent = new Intent(getBaseContext(), VendedorActivity.class);
