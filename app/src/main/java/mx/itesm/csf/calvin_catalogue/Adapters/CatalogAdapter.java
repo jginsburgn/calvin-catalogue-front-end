@@ -1,6 +1,7 @@
 package mx.itesm.csf.calvin_catalogue.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,10 +10,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 //import mx.itesm.csf.calvin_catalogue.InsertData;
 import mx.itesm.csf.calvin_catalogue.Models.CatalogModel;
+import mx.itesm.csf.calvin_catalogue.ProductActivity;
 import mx.itesm.csf.calvin_catalogue.R;
 
 /**
@@ -52,13 +56,15 @@ public class CatalogAdapter extends RecyclerView.Adapter<CatalogAdapter.DataCont
         @Override
         public void onBindViewHolder(@NonNull DataContainer holder, int position)
         {
+
             /* Catalog Model instance based on position */
                 CatalogModel catalogModel  = catalogElements.get(position);
             /* Get the name from the model and set the name in the holder*/
-            holder.Name.setText(catalogModel.getName());
-            //holder.Product_id.setText(catalogModel.getProduct_id());
-            holder.Description.setText(catalogModel.getDesc());
-            holder.Price.setText(catalogModel.getPrice());
+                holder.Name.setText(catalogModel.getName());
+                //holder.Image.setImageBitmap(catalogModel.getImage());
+                Picasso.get().load(catalogModel.getImageN()).into(holder.Image);
+                holder.Price.setText(catalogModel.getPrice());
+
 
             holder.catalogModel = catalogModel;
         }
@@ -73,26 +79,30 @@ public class CatalogAdapter extends RecyclerView.Adapter<CatalogAdapter.DataCont
     class DataContainer extends RecyclerView.ViewHolder
     {
 
-        TextView Name;              /* CAMBIARRRRR */
-        TextView Description;
+        TextView Name;                                                                              /* ****CAMBIARRRRR**** */
         TextView Price;
         ImageView Image;
-        TextView Product_id;
 
         CatalogModel catalogModel;
 
         // Define the View
-            public  DataContainer (View itemView)
+            public  DataContainer (final View itemView)
             {
                 super(itemView);
 
                 // Find the view Components
-                    Name         =  itemView.findViewById(R.id.v_name);
-                    Description  =  itemView.findViewById(R.id.id_ph);
-                    Price        =  itemView.findViewById(R.id.product_price);
+                    Name         =  itemView.findViewById(R.id.tv_name);
                     Image        =  itemView.findViewById(R.id.product_image);
+                    Price        =  itemView.findViewById(R.id.product_price);
                     //Product_id   =  itemView.findViewById(R.id.product_id);
 
+                itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override public void onClick(View v) {
+                        Intent intent = new Intent(context, ProductActivity.class);
+                        intent.putExtra("Name", Name.getText().toString());
+                        itemView.getContext().startActivity(intent);
+                    }
+                });
 
             }
 

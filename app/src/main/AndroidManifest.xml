@@ -27,8 +27,9 @@
             android:name=".GerenteActivity"
             android:label="@string/title_activity_gerente" />
         <activity android:name=".GerenteFragments.ReporteVendedor" />
-        <activity android:name=".GerenteFragments.AgregarVendedor"></activity>
-        <activity android:name=".OwnerActivity"></activity>
+        <activity android:name=".GerenteFragments.AgregarVendedor" />
+        <activity android:name=".OwnerActivity" />
+        <activity android:name=".ProductActivity"></activity>
     </application>
 
 </manifest>

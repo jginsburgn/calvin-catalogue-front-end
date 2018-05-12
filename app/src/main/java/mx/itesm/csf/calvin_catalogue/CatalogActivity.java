@@ -1,16 +1,23 @@
 package mx.itesm.csf.calvin_catalogue;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonArrayRequest;
 
 import org.json.JSONArray;
@@ -23,7 +30,10 @@ import java.util.List;
 import mx.itesm.csf.calvin_catalogue.Adapters.CatalogAdapter;
 import mx.itesm.csf.calvin_catalogue.Controllers.Controller;
 import mx.itesm.csf.calvin_catalogue.Controllers.Services;
+import mx.itesm.csf.calvin_catalogue.Controllers.Singleton;
 import mx.itesm.csf.calvin_catalogue.Models.CatalogModel;
+
+import static mx.itesm.csf.calvin_catalogue.Controllers.Services.IMAGES_URL;
 
 public class CatalogActivity extends AppCompatActivity {
 
@@ -87,7 +97,7 @@ public class CatalogActivity extends AppCompatActivity {
             }
 
         // CardView components
-            recLayoutManager = new LinearLayoutManager(CatalogActivity.this,LinearLayoutManager.VERTICAL,false);
+            recLayoutManager =  new GridLayoutManager(CatalogActivity.this, 2);
             recView.setLayoutManager(recLayoutManager);
             recAdapter = new CatalogAdapter(CatalogActivity.this, catalogElements);
             recView.setAdapter(recAdapter);
@@ -96,6 +106,7 @@ public class CatalogActivity extends AppCompatActivity {
 
     private void getJSON()
     {
+
         // Show the progress Bar
             progressBar.setMessage("Cargando datos...");
             progressBar.setCancelable(false);
@@ -109,6 +120,8 @@ public class CatalogActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONArray response) {
                             progressBar.cancel();
+                            String product_image = "";
+                            Bitmap image;
 
                             /* DEBUG purposes */
                             Log.d("JSON","INFO: " + response.toString());
@@ -121,11 +134,16 @@ public class CatalogActivity extends AppCompatActivity {
                                     CatalogModel catalogmodel = new CatalogModel();
 
                                     // Get the data from the JSON
-                                        catalogmodel.setProduct_id(data.getString("Clave_auto"));  /* CAMBIAR A PRODUCTOS */
-                                        catalogmodel.setName(data.getString("Nombre"));
-                                        catalogmodel.setDesc(data.getString("Clave_marca"));
-                                        catalogmodel.setPrice(data.getString("Precio"));
-                                        catalogmodel.setImage(data.getString("imagen"));
+                                    catalogmodel.setProduct_id(data.getString("Clave_auto"));  /* CAMBIAR A PRODUCTOS */
+                                    catalogmodel.setName(data.getString("Nombre"));
+                                    catalogmodel.setDesc(data.getString("Clave_marca"));
+                                    catalogmodel.setPrice(data.getString("Precio"));
+
+                                    //product_image = data.getString("Imagen");                     /* ***** Cambiar para que llame a la imagen del producto***** */
+                                    product_image = IMAGES_URL + "Frida";
+
+                                    catalogmodel.setImageN(product_image+".jpg");
+
 
                                     // Add the data to the List
                                         catalogElements.add(catalogmodel);
@@ -147,4 +165,5 @@ public class CatalogActivity extends AppCompatActivity {
 
             Controller.getInstance().addToRequestQueue(reqData);
     }
+
 }

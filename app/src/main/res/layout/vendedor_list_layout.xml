@@ -42,7 +42,7 @@
                 android:text="Client Name "
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/id_ph" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
             <TextView
                 android:id="@+id/v_sales"
@@ -59,7 +59,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/v_name" />
 
             <TextView
-                android:id="@+id/id_ph"
+                android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -77,17 +77,17 @@
                 android:id="@+id/v_id"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_alignBaseline="@+id/id_ph"
-                android:layout_alignBottom="@+id/id_ph"
+                android:layout_alignBaseline="@+id/tv_name"
+                android:layout_alignBottom="@+id/tv_name"
                 android:layout_marginLeft="12dp"
                 android:layout_marginStart="12dp"
-                android:layout_toEndOf="@+id/id_ph"
-                android:layout_toRightOf="@+id/id_ph"
+                android:layout_toEndOf="@+id/tv_name"
+                android:layout_toRightOf="@+id/tv_name"
                 android:text="01"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toEndOf="@+id/v_name"
                 app:layout_constraintHorizontal_bias="0.007"
-                app:layout_constraintStart_toEndOf="@+id/id_ph"
+                app:layout_constraintStart_toEndOf="@+id/tv_name"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -112,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignEnd="@+id/product_price"
                 android:layout_alignRight="@+id/product_price"
-                android:layout_below="@+id/id_ph"
+                android:layout_below="@+id/tv_name"
                 android:text="Entregado" />
 
 

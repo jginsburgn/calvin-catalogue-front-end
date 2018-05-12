@@ -1,11 +1,15 @@
 package mx.itesm.csf.calvin_catalogue.Controllers;
 
 import android.app.Application;
+import android.content.Context;
+import android.graphics.Bitmap;
 import android.text.TextUtils;
+import android.util.LruCache;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 
 /**
@@ -19,6 +23,7 @@ public class Controller extends Application
     private static final String TAG = Controller.class.getSimpleName();
     private static Controller instance  ;
     RequestQueue reqQueue;
+    private static Context mCtx;
 
     @Override
     public void onCreate()
@@ -27,10 +32,11 @@ public class Controller extends Application
         instance = this;
     }
 
-    public static synchronized Controller getInstance()
-            {
-                return instance;
-            }
+
+
+    public static synchronized Controller getInstance() {
+        return instance;
+    }
 
 
    // To obtain volley request
@@ -58,7 +64,7 @@ public class Controller extends Application
             getRequestQueue().add(req);
         }
 
-    // Cancell Volley Request
+    // Cancel Volley Request
         public void cancelRequests(Object request)
         {
             if (reqQueue != null)

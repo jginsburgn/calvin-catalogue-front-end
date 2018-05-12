@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mx.itesm.csf.calvin_catalogue.ProductActivity">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="283dp"
+        android:layout_height="38dp"
+        android:text="TextView"
+        android:textAppearance="@android:style/TextAppearance.Material.Title"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <com.gc.materialdesign.views.ButtonRectangle
+        android:id="@+id/btn_comprar"
+        android:layout_width="128dp"
+        android:layout_height="63dp"
+        android:text="Realizar pedido"
+        tools:layout_editor_absoluteX="216dp"
+        tools:layout_editor_absoluteY="83dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="159dp"
+        android:layout_height="172dp"
+        app:srcCompat="@drawable/c_color"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="75dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="201dp"
+        android:layout_height="44dp"
+        android:text="Tiendas Disponibles"
+        android:textAppearance="@android:style/TextAppearance.Material.SearchResult.Title"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="297dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:text="Descripcion"
+        tools:layout_editor_absoluteX="204dp"
+        tools:layout_editor_absoluteY="158dp" />
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="139dp"
+        android:layout_height="87dp"
+        android:text="Description"
+        tools:layout_editor_absoluteX="204dp"
+        tools:layout_editor_absoluteY="184dp" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAppearance="@android:style/TextAppearance.Material.ListItem"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="252dp" />
+
+    <GridLayout
+        android:layout_width="329dp"
+        android:layout_height="148dp"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="347dp">
+
+        <TextView
+            android:id="@+id/tv_ubicacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/tv_tienda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="59dp" />
+    </GridLayout>
+
+</android.support.constraint.ConstraintLayout>
