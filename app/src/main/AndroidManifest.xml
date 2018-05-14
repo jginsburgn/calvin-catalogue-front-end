@@ -29,7 +29,8 @@
         <activity android:name=".GerenteFragments.ReporteVendedor" />
         <activity android:name=".GerenteFragments.AgregarVendedor" />
         <activity android:name=".OwnerActivity" />
-        <activity android:name=".ProductActivity"></activity>
+        <activity android:name=".ProductActivity" />
+        <activity android:name=".CategoryActivity"></activity>
     </application>
 
 </manifest>
